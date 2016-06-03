@@ -14,4 +14,15 @@
 Route::get('/', 'HomeController@index');
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'PacienteController@index');
+
+
+
+//--------------Middleware stuff-----------------------------
+Route::group(['middleware' => ['web']], function () {
+    
+  Route::resource('hematologia', 'HematologiaController');
+  Route::resource('paciente', 'PacienteController');
+  Route::resource('general', 'GeneralController');
+  Route::resource('eform', 'EformController');
+});

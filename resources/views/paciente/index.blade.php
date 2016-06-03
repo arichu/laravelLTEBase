@@ -18,7 +18,7 @@
 					<a href="{{url('paciente/create')}}" class ='btn btn-xs btn-primary pull-right'>Anadir pacientes</a>
 					</div>
 					<div class="panel-body">
-								<table id='table'>
+								<table id='table' class="table table-bordered table-hover dataTable">
 									<thead>
 										<tr>
 											<th>Acciones</th>
@@ -42,7 +42,13 @@
 											<td>{{$row->first_name}}</td>
 											<td>{{$row->last_name}}</td>
 											<td>{{$row->dni}}</td>
-											<td>{{$row->gender}}</td>
+											<td>
+ 											@if($row->gender == '1')
+ 											Masculino
+ 											@else
+ 											Femenino
+											@endif
+											</td>
 											<td>{{$row->age}}</td>
 										</tr>
 										@endforeach
