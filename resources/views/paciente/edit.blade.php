@@ -3,6 +3,9 @@
 @section('htmlheader_title')
     @lang('paciente.module')
 @endsection
+@section('contentheader_title')
+    @lang('paciente.edittitle')
+@endsection
 @section('main-content')
     <div class="container spark-screen">
         <div class="row">
@@ -13,12 +16,12 @@
                         @include('layouts.partials.error')
                         {!! Form::model($paciente, array('route' => array('paciente.update', $paciente->id), 'method' =>
                         'put')) !!}
-                        <div>
+                        <div >
                             {!! Form::label('dni','DNI', ['class'=>'control-label']) !!}
                             {!! Form::text('dni',null, ['class'=>'form-control']) !!}
                         </div>
 
-                        <div>
+                        <div >
                             {!! Form::label('first_name','Nombre', ['class'=>'control-label']) !!}
                             {!! Form::text('first_name',null, ['class'=>'form-control']) !!}
                         </div>

@@ -14,12 +14,12 @@ return [
     */
 
     //Module
-    'module'                  => 'Paciente',
-    'moduleplural'            => 'Pacientes',
-    'record'            => 'paciente',
-    'records'            => 'pacientes',
+    'module'                  => 'Hematologia',
+    'moduleplural'            => 'Hematologias',
+    'record'            => 'hematologia',
+    'records'            => 'hematologias',
     //Fields
-    'full_name'              => 'Nombre completo',
+    'order'              => 'Orden:',
     'first_name'              => 'Nombres',
     'last_name'              => 'Apellidos',
     'dni'              => 'Carnet de identidad',
@@ -28,10 +28,10 @@ return [
     'genderf'              => 'Femenino',
     'age'              => 'Edad',
     //Views
-    'indextitle'              => 'Lista de pacientes',
-    'createtitle'              => 'Añadir nuevo paciente',
-    'edittitle'              => 'Editar datos del paciente',
-    'showtitle'              => 'Registro de paciente',
+    'indextitle'              => 'Formulario Hematologia',
+    'createtitle'              => 'Nuevo formulario Hematologia',
+    'edittitle'              => 'Editar datos de la hematologia',
+    'showtitle'              => 'Registro de hematologias',
     'deletetitle'              => 'Eliminar paciente',
     'someproblems'            => 'Hay algunos problemas con su entrada.',
     'siginsession'            => 'Inicia sesión para acceder',

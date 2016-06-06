@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Paciente;
+
+use App\General;
+
 class GeneralController extends Controller
 {
     /**
@@ -23,9 +27,10 @@ class GeneralController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $paciente=Paciente::findOrFail($id);
+        return view('analisis.general.create')->withPaciente($paciente);
     }
 
     /**
@@ -36,7 +41,14 @@ class GeneralController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paciente=Paciente::findOrFail($request->user_id);
+        $input = $request->all();
+        $data = new General();
+        $data ->fill($input);
+        $data ->dni=$paciente->dni;
+        $data ->user_id=$paciente->id;
+        $data ->save();
+        return Redirect('general/'.$data->id);
     }
 
     /**
@@ -48,6 +60,9 @@ class GeneralController extends Controller
     public function show($id)
     {
         //
+        $data = General::findOrFail($id);
+        $paciente = Paciente::findOrFail($data->user_id);
+        return view('analisis.general.show',['paciente' => $paciente])->withGeneral($data);
     }
 
     /**
@@ -58,7 +73,9 @@ class GeneralController extends Controller
      */
     public function edit($id)
     {
-        //
+        $general = General::findOrFail($id);
+        $item = Paciente::findOrFail($general->user_id);
+        return view('analisis.general.edit',['paciente' => $item])->withGeneral($general);
     }
 
     /**
@@ -70,7 +87,11 @@ class GeneralController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=General::findOrFail($id);
+        $input = $request->all();
+        $data ->fill($input);
+        $data ->save();
+        return Redirect('paciente/'.$data->user_id);
     }
 
     /**
@@ -81,6 +102,9 @@ class GeneralController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $data=General::findOrFail($id);
+        $user_id=$data->user_id;
+        $data->delete();
+        return Redirect('paciente/'.$user_id);
     }
 }

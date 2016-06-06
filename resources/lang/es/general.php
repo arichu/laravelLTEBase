@@ -14,8 +14,8 @@ return [
     */
 
     //Module
-    'module'                  => 'Paciente',
-    'moduleplural'            => 'Pacientes',
+    'module'                  => 'Examen general de orina',
+    'moduleplural'            => 'Examenes',
     'record'            => 'paciente',
     'records'            => 'pacientes',
     //Fields
@@ -28,10 +28,10 @@ return [
     'genderf'              => 'Femenino',
     'age'              => 'Edad',
     //Views
-    'indextitle'              => 'Lista de pacientes',
-    'createtitle'              => 'Añadir nuevo paciente',
-    'edittitle'              => 'Editar datos del paciente',
-    'showtitle'              => 'Registro de paciente',
+    'indextitle'              => 'Lista de Examenes',
+    'createtitle'              => 'Añadir nuevo examen',
+    'edittitle'              => 'Editar datos del examen',
+    'showtitle'              => 'Registro de Examenes de orina',
     'deletetitle'              => 'Eliminar paciente',
     'someproblems'            => 'Hay algunos problemas con su entrada.',
     'siginsession'            => 'Inicia sesión para acceder',

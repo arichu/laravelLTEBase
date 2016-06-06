@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Paciente extends Model
 {
     //
@@ -17,16 +18,30 @@ class Paciente extends Model
      */
     public function generals()
     {
-        return $this->hasMany(General::class);
+        return $this->hasMany('App\General', 'user_id');
     }
 
     public function hematologias()
     {
-        return $this->hasMany(Hematologia::class);
+        return $this->hasMany('App\Hematologia', 'user_id');
     }
 
     public function eforms()
     {
-        return $this->hasMany(Eform::class);
+        return $this->hasMany('App\Eform', 'user_id');
+    }
+    protected static function boot() {
+        parent::boot();
+        static::deleted(function ($paciente) {
+            foreach($paciente->hematologias as $gen) {
+                $gen->delete();
+            }
+            foreach($paciente->generals as $gen) {
+                $gen->delete();
+            }
+            foreach($paciente->eforms as $gen) {
+                $gen->delete();
+            }
+        });
     }
 }

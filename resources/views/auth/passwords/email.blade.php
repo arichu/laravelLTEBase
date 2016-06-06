@@ -9,7 +9,7 @@
 <body class="login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+            <a href="{{ url('/home') }}"><b>BIO</b>sisus</a>
         </div><!-- /.login-logo -->
 
         @if (session('status'))
@@ -50,7 +50,7 @@
             </form>
 
             <a href="{{ url('/login') }}">Log in</a><br>
-            <a href="{{ url('/register') }}" class="text-center">{{ trans('message.registermember') }}</a>
+            <!-- <a href="{{ url('/register') }}" class="text-center">{{ trans('message.registermember') }}</a> -->
 
         </div><!-- /.login-box-body -->
 

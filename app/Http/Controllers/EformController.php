@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Paciente;
+
+use App\Eform;
+
 class EformController extends Controller
 {
     /**
@@ -23,9 +27,10 @@ class EformController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $paciente=Paciente::findOrFail($id);
+        return view('analisis.eform.create')->withPaciente($paciente);
     }
 
     /**
@@ -36,7 +41,14 @@ class EformController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $paciente=Paciente::findOrFail($request->user_id);
+        $input = $request->all();
+        $data = new Eform();
+        $data ->fill($input);
+        $data ->dni=$paciente->dni;
+        $data ->user_id=$paciente->id;
+        $data ->save();
+        return Redirect('eform/'.$data->id);
     }
 
     /**
@@ -47,7 +59,10 @@ class EformController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $data = Eform::findOrFail($id);
+        $paciente = Paciente::findOrFail($data->user_id);
+        return view('analisis.eform.show',['paciente' => $paciente])->withEform($data);
     }
 
     /**
@@ -58,7 +73,9 @@ class EformController extends Controller
      */
     public function edit($id)
     {
-        //
+        $eform = Eform::findOrFail($id);
+        $item = Paciente::findOrFail($eform->user_id);
+        return view('analisis.eform.edit',['paciente' => $item])->withEform($eform);
     }
 
     /**
@@ -70,7 +87,11 @@ class EformController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=Eform::findOrFail($id);
+        $input = $request->all();
+        $data ->fill($input);
+        $data ->save();
+        return Redirect('paciente/'.$data->user_id);
     }
 
     /**
@@ -81,6 +102,9 @@ class EformController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Eform::findOrFail($id);
+        $user_id=$data->user_id;
+        $data->delete();
+        return Redirect('paciente/'.$user_id);
     }
 }

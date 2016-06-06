@@ -29,9 +29,9 @@ return [
     'age'              => 'Edad',
     //Views
     'indextitle'              => 'Lista de pacientes',
-    'createtitle'              => 'Añadir nuevo paciente',
-    'edittitle'              => 'Editar datos del paciente',
-    'showtitle'              => 'Registro de paciente',
+    'createtitle'              => 'Añadir nuevo formulario',
+    'edittitle'              => 'Editar datos del formulario',
+    'showtitle'              => 'Registro de formulario',
     'deletetitle'              => 'Eliminar paciente',
     'someproblems'            => 'Hay algunos problemas con su entrada.',
     'siginsession'            => 'Inicia sesión para acceder',

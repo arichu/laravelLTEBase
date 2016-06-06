@@ -35,10 +35,18 @@
                             <tr>
                                 <td>
                                     <div class="btn-group">
+                                    <form action="{{ url('paciente/'.$row->id) }}" method="POST">
+                                            {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
                                         <a href="{{route('paciente.show', $row->id)}}" class="btn btn-primary btn-xs"><i
                                                     class='fa fa-eye'></i> </a>
                                         <a href="{{route('paciente.edit', $row->id)}}" class="btn btn-info btn-xs"><i
                                                     class='fa fa-edit'></i> </a>
+
+                                 <button class="btn btn-danger btn-xs" onclick="return confirm('Esta seguro que desea eliminar este elemento?') ">
+                           <i class="fa fa-trash"></i>
+                      </button>
+                </form>
                                     </div>
 
                                 </td>
@@ -73,6 +81,7 @@
                 "info": "@lang('tables.info')",
                 "infoEmpty": "@lang('tables.infoEmpty')",
                 "infoFiltered": "@lang('tables.infoFiltered')",
+                "search":"@lang('tables.search')",
                 "paginate": {
                     "first": "@lang('tables.first')",
                     "last": "@lang('tables.last')",

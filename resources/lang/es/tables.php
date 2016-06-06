@@ -25,5 +25,6 @@ return [
     "next" => "Siguiente",
     "first" => "Inicio",
     "last" => "Final",
+    "search" => "Buscar",
 
 ];

@@ -14,10 +14,10 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">@lang('paciente.createtitle')</div>
-                    <div class="panel-body">
+                    <div class="panel-body" class="uppercase" >
                         @include('layouts.partials.error')
                         {!! Form::open(array('url' => 'paciente')) !!}
-                        <div>
+                        <div class="uppercase">
                             {!! Form::label('dni','DNI', ['class'=>'control-label']) !!}
                             {!! Form::text('dni',null, ['class'=>'form-control']) !!}
                         </div>

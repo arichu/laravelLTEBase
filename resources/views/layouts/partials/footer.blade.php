@@ -2,8 +2,8 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        <a href="https://github.com/acacha/adminlte-laravel"></a><b>admin-lte-laravel</b></a>. {{ trans('message.descriptionpackage') }}
+        <a href="#"></a><b>Sistema Biosisus</b></a>. En proceso de desarrollo 
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2015 <a href="http://acacha.org">Acacha.org</a>.</strong> {{ trans('message.createdby') }} <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a>. {{ trans('message.seecode') }} <a href="https://github.com/acacha/adminlte-laravel">Github</a>
+    <strong>Copyright &copy; 2016 <a href="#">SIS</a>.</strong> Creado por <a href="#">Team mani</a>
 </footer>

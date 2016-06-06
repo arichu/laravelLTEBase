@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Paciente;
 
 use App\Hematologia;
+use App\General;
+use App\Eform;
 
 use App\Http\Requests;
 
@@ -71,11 +73,22 @@ class PacienteController extends Controller
     public function show($id)
     {
             $item = Paciente::findOrFail($id);
-            $hematologia = Paciente::find($id)->hematologia;
+            $hematologia = Hematologia::where('user_id',$id)
+            ->get();
+            $eform = Eform::where('user_id',$id)
+            ->get();
+            $general = General::where('user_id',$id)
+            ->get();
             if(empty($hematologia)){
                 $hematologia = [];
             }
-        return view('paciente.show',['hematologias' => $hematologia])->withPaciente($item);
+            if(empty($eform)){
+                $eform = [];
+            }
+            if(empty($general)){
+                $general = [];
+            }
+        return view('paciente.show',['hematologias' => $hematologia, 'eforms' => $eform, 'generals' => $general])->withPaciente($item);
     }
 
     /**
@@ -101,7 +114,7 @@ class PacienteController extends Controller
     {
         //
         $validator= Validator::make($request->all(),[
-            'dni'=>'required|unique:pacientes',
+            'dni'=>'required',
             'first_name'=>'required',
             'last_name'=>'required',
             'age'=>'required',
@@ -127,6 +140,9 @@ class PacienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Paciente::findOrFail($id);
+        $data->deleted( $data->delete());
+       
+        return Redirect('paciente');
     }
 }
