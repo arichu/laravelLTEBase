@@ -48,21 +48,16 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-         $validator= Validator::make($request->all(),[
-                'dni'=>'required',
-                'first_name'=>'required',
-                'last_name'=>'required',
-                'age'=>'required',
-                'gender'=>'required',
-            ]);
-        if($validator->fails())
-        {
-            return Redirect::back()
-            ->withInput()
-            ->withErrors($validator);
-        }
+        $this->validate($request,[
+            'dni'=>'required|unique:pacientes',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'age'=>'required',
+            'gender'=>'required',
+        ]);
+        $input = $request->all();
         $data = new Paciente();
-        $data ->fill($request->all());
+        $data ->fill($input);
         $data ->save();
         return Redirect('paciente');
     }
@@ -105,6 +100,23 @@ class PacienteController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validator= Validator::make($request->all(),[
+            'dni'=>'required|unique:pacientes',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'age'=>'required',
+            'gender'=>'required',
+        ]);
+        if($validator->fails())
+        {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors($validator);
+        }
+        $data = Paciente::findOrFail($id);
+        $data ->fill($request->all());
+        $data ->save();
+        return Redirect('paciente');
     }
 
     /**

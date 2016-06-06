@@ -13,7 +13,26 @@ return [
     |
     */
 
-    'titulo'                  => 'Lista de pacientes',
+    //Module
+    'module'                  => 'Paciente',
+    'moduleplural'            => 'Pacientes',
+    'record'            => 'paciente',
+    'records'            => 'pacientes',
+    //Fields
+    'full_name'              => 'Nombre completo',
+    'first_name'              => 'Nombres',
+    'last_name'              => 'Apellidos',
+    'dni'              => 'Carnet de identidad',
+    'gender'              => 'Genero',
+    'genderm'              => 'Masculino',
+    'genderf'              => 'Femenino',
+    'age'              => 'Edad',
+    //Views
+    'indextitle'              => 'Lista de pacientes',
+    'createtitle'              => 'Añadir nuevo paciente',
+    'edittitle'              => 'Editar datos del paciente',
+    'showtitle'              => 'Ver paciente',
+    'deletetitle'              => 'Eliminar paciente',
     'someproblems'            => 'Hay algunos problemas con su entrada.',
     'siginsession'            => 'Inicia sesión para acceder',
     'remember'                => 'Recuérdame',

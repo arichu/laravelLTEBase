@@ -125,4 +125,6 @@ return [
     'password'                => 'Contraseña',
     'retrypepassword'         => 'Vuelva a escribir la contraseña',
     'fullname'                => 'Nombre completo',
+    //New labels
+    'save'                    => 'Guardar Datos',
 ];
