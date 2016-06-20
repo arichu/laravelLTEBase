@@ -27,7 +27,7 @@
 
     function Popup(data) 
     {
-        var mywindow = window.open('', 'print', 'height=400,width=600');
+        var mywindow = window.open('', 'print');
         mywindow.document.write('<html><head><title>Hematologia</title>');
         /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
         /*var css1 = '<link href="{{ asset("/css/bootstrap.css") }}" rel="stylesheet" type="text/css" />';

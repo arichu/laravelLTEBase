@@ -127,26 +127,16 @@
                                 <img src="{{asset('/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
                                 <p>
                                     {{ Auth::user()->name }}
-                                    <small>{{ trans('message.login') }} Nov. 2012</small>
+                                    <small>Bienvenido/a a Biosisus</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">{{ trans('message.followers') }}</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">{{ trans('message.sales') }}</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">{{ trans('message.friends') }}</a>
-                                </div>
-                            </li>
+
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">{{ trans('message.profile') }}</a>
-                                </div>
+                                {{--<div class="pull-left">--}}
+                                    {{--<a href="#" class="btn btn-default btn-flat">{{ trans('message.profile') }}</a>--}}
+                                {{--</div>--}}
                                 <div class="pull-right">
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">{{ trans('message.signout') }}</a>
                                 </div>
@@ -154,11 +144,6 @@
                         </ul>
                     </li>
                 @endif
-
-                <!-- Control Sidebar Toggle Button -->
-                <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
             </ul>
         </div>
     </nav>
